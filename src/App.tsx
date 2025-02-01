@@ -2,25 +2,22 @@ import type { Component } from 'solid-js';
 
 import logo from './logo.svg';
 import styles from './App.module.css';
+import indexstyles from './index.css';
+import Button from './components/Button';
+import ProjectCard from './components/ProjectCard';
+import { Route, Router } from '@solidjs/router';
+import Layout from './components/Layout';
+import Home from './pages/Home';
 
 const App: Component = () => {
+  const testFunc = () => {
+    console.log("hello!");
+  } 
+
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
-    </div>
+    <Router root={Layout}>
+      <Route path='/' component={Home}></Route>
+    </Router>
   );
 };
 
